@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "openrelik-worker-takajo"
 version = "2024.11.18"
-description = "Custom worker for OpenRelik using Automagic analysis tool"
+description = "Custom worker for OpenRelik using Atakajo analysis tool"
 authors = ["Hussein Alselwi <geekypro.77@gmail.com>"]
 readme = "README.md"
 
