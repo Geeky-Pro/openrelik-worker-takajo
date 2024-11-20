@@ -41,13 +41,14 @@ RUN curl -L -o ${TAKAJO_ZIP} https://github.com/Yamato-Security/takajo/releases/
 # Unzip and clean up
 RUN unzip ${TAKAJO_ZIP} -d / && rm ${TAKAJO_ZIP}
 
-# Rename the extracted directory for easier reference
+# Rename the extracted directory and nested folder for easier reference
 RUN TAKAJO_EXTRACTED_DIR="/takajo-${TAKAJO_VERSION}-lin-x64-gnu/takajo-${TAKAJO_VERSION}-lin-x64-gnu" && \
-    mv "${TAKAJO_EXTRACTED_DIR}" /takajo-${TAKAJO_VERSION}-lin-x64-gnu/takajo
-
+    mv "${TAKAJO_EXTRACTED_DIR}" /takajo-${TAKAJO_VERSION}-lin-x64-gnu/takajo && \
+    mv /takajo-${TAKAJO_VERSION}-lin-x64-gnu /takajo
 
 # Make Takajo executable
-RUN chmod 755 /takajo-${TAKAJO_VERSION}-lin-x64-gnu/takajo
+RUN chmod 755 /takajo/takajo
+
 # ----------------------------------------------------------------------
 
 # Default command if not run from docker-compose (and command being overidden)
